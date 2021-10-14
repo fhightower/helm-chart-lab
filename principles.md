@@ -16,5 +16,11 @@
 
 - Use `default` for computed values. If you find yourself using `default` for static values, these shold probably go in the `values.yaml`.
 - Prefix names of templates with the chart name (e.g. `mychart.labels` rather than `labels`)
-- Prefer `include` to `template` as `include` is easier to pipeline with output formatting changes
-- 
+- Prefer `include` to `template` (and `block`) as `include` is easier to pipeline with output formatting changes and can dynamically reference templates
+- Global values can be accessed from the chart in which they are defined and any subcharts (using a name like `{{ .Values.global.___ }}`)
+- You can debug a template by commenting something out:
+
+    ```
+    # some: problem section
+    # {{ .Values.foo | quote }}
+    ```
