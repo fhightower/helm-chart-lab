@@ -1,0 +1,14 @@
+version: "3.4"
+
+services:
+  dev:
+    build:
+      dockerfile: "./docker/dev.dockerfile"
+      context: "."
+    image: "helm-lab-dev"
+    stdin_open: true
+    tty: true
+    volumes:
+      - "./:/app"
+    entrypoint:
+      - "/bin/bash"
