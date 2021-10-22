@@ -9,3 +9,5 @@ RUN curl "${HELM_BINARY_URL}" --output "${HELM_ZIP}"\
     && rm -rf ${HELM_ZIP} \
     && rm -rf linux-amd64
 ENV PATH="/app/development/docker/bin:${PATH}"
+
+WORKDIR /app

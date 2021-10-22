@@ -24,3 +24,4 @@
     # some: problem section
     # {{ .Values.foo | quote }}
     ```
+- `helm template {CHART_NAME}` is really helpful
