@@ -9,3 +9,9 @@ data:
   {{ $key }}: {{ $val | quote }}
   {{- end }}
   mug: {{ if and .Values.favorite.drink (or (eq .Values.favorite.drink "coffee") (eq .Values.favorite.drink "tea")) }}true{{ else }}false{{ end }}
+
+  {{- $labels :=  (merge (dict "a" "a") (include "mychart.labels" $ | fromYaml)) -}}
+  {{- if (eq .Values.favorite.drink "tea") }}
+  {{- $labels :=  (merge $labels (dict "b" "b")) -}}
+  {{- end }}
+  {{- $labels | toYaml | nindent 2 }}

@@ -1,6 +1,5 @@
 {{/* Generate basic labels */}}
-{{- define "mychart.labels" }}
-  labels:
-    generator: helm
-    date: {{ now | htmlDate }}
-{{- end }}
+{{- define "mychart.labels" -}}
+generator: helm
+date: {{ now | htmlDate }}
+{{- end -}}

@@ -25,3 +25,21 @@
     # {{ .Values.foo | quote }}
     ```
 - `helm template {CHART_NAME}` is really helpful
+- When defining a template helper, put `-` on both sides of the helper definition and end:
+
+    ```
+    {{- define "mychart.labels" -}}
+    ...
+    {{- end -}}
+    ```
+- The order in which values are given to the `merge` function may be important; if you are merging some data into a variable which is referenced later, put the variable first:
+
+    ```
+    {{ merge $labels (dict "a" "a")}}
+    ```
+
+    instead of:
+
+    ```
+    {{ merge (dict "a" "a") $labels}}
+    ```
