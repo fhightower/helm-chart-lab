@@ -43,3 +43,4 @@
     ```
     {{ merge (dict "a" "a") $labels}}
     ```
+- When referencing something more than one level deep (e.g. `$.Values.foo.bar`), you either need to check that `$.Values.foo` exists before referencing `$.Values.foo.bar` or you will get errors
